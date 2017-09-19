@@ -13,7 +13,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
 }
 ```
-Create HTML file and write the route in the  `` templateUrl: '' ``, and create the SCSS file and write the route in the ``styleUrls:``
+Create HTML file and write the route in the  `` templateUrl: '' ``,
+
+and create the SCSS file and write the route in the ``styleUrls:``
 
 ## module
 Create a 'app.module.ts' file
@@ -44,14 +46,36 @@ The ``BrowserModule``,`` NgModule``,``FormsModule``,``FormsModule`` is must be i
 
 and then you should ``declaraction`` and ``imports``them
 
-## import { KSCToolbarModule } 
+## router 
 
-if you want to display a children component, you must import the module in app.module, such as ``KSCToolbarModule``
-
-And then write the children``selector: ``in the app.component.html
-
-Such as:
+Create app-routing-module.ts file 
 ```
-<ksc-toolbar></ksc-toolbar>
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'basic-components/ksc-dragable-dashboard', loadChildren: './ksc-dragable-dashboard/ksc-dragable-dashboard-demo.module#KSCDragableDashboardDemoModule'},
+  { path: 'basic-components/ksc-select-picker', loadChildren: './ksc-select-picker/ksc-select-picker-demo.module#KSCSelectPickerDemoModule'},
+  { path: 'basic-components/ksc-dropdown-picker', loadChildren: './ksc-dropdown-picker/ksc-dropdown-picker-demo.module#KSCDropdownPickerDemoModule'},
+  { path: 'basic-components/ksc-bread-crumbs', loadChildren: './ksc-bread-crumbs/ksc-bread-crumbs-demo.module#KSCBreadCrumbsDemoModule'},
+  { path: 'basic-components/ksc-date-range-picker', loadChildren: './ksc-date-range-picker/ksc-date-range-picker-demo.module#KSCDateRangePickerDemoModule'},
+  { path: 'basic-components/ksc-table', loadChildren: './ksc-table/ksc-table-demo.module#KSCTableDemoModule'}
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
 ```
+Declare const routes for display those component.
+
+Export the ``AppRoutingModule``, and import in 'app.module.ts'.
+```
+import { AppRoutingModule } from './app-routing.module'
+```
+
 
