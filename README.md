@@ -1,6 +1,12 @@
 # AppComponent
 Write a main component of a project to connect with other children component
 
+### grammar:
++ [Angular](https://angular.io),
++ [Type Script](http://www.typescriptlang.org/),
++ [SCSS](http://sass-lang.com/)
++ [Bootstrap](http://getbootstrap.com/2.3.2/)
+
 ## Component
 Create a 'app.component.ts' file
 ```ts
